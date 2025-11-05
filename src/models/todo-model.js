@@ -14,14 +14,32 @@ export class TodoModel {
    * Subscribe to model changes
    */
   subscribe(listener) {
-    this.listeners.push(listener);
+    // prevent duplicate subscriptions
+    if (typeof listener !== 'function') return () => {};
+    if (this.listeners.indexOf(listener) === -1) {
+      this.listeners.push(listener);
+    }
+
+    // return an unsubscribe function for convenience
+    return () => {
+      this.listeners = this.listeners.filter(l => l !== listener);
+    };
   }
 
   /**
    * Notify all subscribers of changes
    */
   notify() {
-    this.listeners.forEach(listener => listener());
+    // iterate over a shallow copy to avoid issues if listeners change during notification
+    const list = Array.from(this.listeners);
+    list.forEach(listener => {
+      try {
+        listener();
+      } catch (e) {
+        // keep other listeners alive if one fails
+        console.error('Listener error in TodoModel.notify:', e);
+      }
+    });
   }
 
   /**

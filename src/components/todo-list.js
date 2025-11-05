@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import { sharedStyles } from '../styles/shared-styles.js';
 import './todo-item.js';
 
 /**
@@ -9,47 +10,50 @@ export class TodoList extends LitElement {
     todos: { type: Array }
   };
 
-  static styles = css`
-    :host {
-      display: block;
-    }
+  static styles = [
+    sharedStyles,
+    css`
+      :host {
+        display: block;
+      }
 
-    .empty-state {
-      text-align: center;
-      padding: 40px 20px;
-      color: white;
-      font-size: 18px;
-    }
+      .empty-state {
+        text-align: center;
+        padding: 40px 20px;
+        color: var(--muted);
+        font-size: 18px;
+      }
 
-    .empty-icon {
-      font-size: 48px;
-      margin-bottom: 16px;
-    }
+      .empty-icon {
+        font-size: 48px;
+        margin-bottom: 16px;
+      }
 
-    .list-container {
-      max-height: 500px;
-      overflow-y: auto;
-    }
+      .list-container {
+        max-height: 500px;
+        overflow-y: auto;
+      }
 
-    /* Custom scrollbar */
-    .list-container::-webkit-scrollbar {
-      width: 8px;
-    }
+      /* Custom scrollbar */
+      .list-container::-webkit-scrollbar {
+        width: 8px;
+      }
 
-    .list-container::-webkit-scrollbar-track {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 4px;
-    }
+      .list-container::-webkit-scrollbar-track {
+        background: rgba(0,0,0,0.02);
+        border-radius: 4px;
+      }
 
-    .list-container::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.3);
-      border-radius: 4px;
-    }
+      .list-container::-webkit-scrollbar-thumb {
+        background: rgba(0,0,0,0.08);
+        border-radius: 4px;
+      }
 
-    .list-container::-webkit-scrollbar-thumb:hover {
-      background: rgba(255, 255, 255, 0.5);
-    }
-  `;
+      .list-container::-webkit-scrollbar-thumb:hover {
+        background: rgba(0,0,0,0.12);
+      }
+    `
+  ];
 
   constructor() {
     super();

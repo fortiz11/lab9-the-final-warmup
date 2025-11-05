@@ -2,7 +2,10 @@
  * StorageService - Handles localStorage operations for the TODO app
  */
 export class StorageService {
-  constructor(storageKey = 'todos') {
+  /**
+   * @param {string} storageKey prefix used for keys in localStorage
+   */
+  constructor(storageKey = 'lab9_todos') {
     this.storageKey = storageKey;
   }
 
@@ -60,5 +63,10 @@ export class StorageService {
     } catch (error) {
       console.error('Failed to clear localStorage:', error);
     }
+  }
+
+  // alias for clear
+  clearAll() {
+    this.clear();
   }
 }

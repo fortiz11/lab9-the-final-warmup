@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import { sharedStyles } from '../styles/shared-styles.js';
 
 /**
  * TodoItem - Individual todo item component
@@ -10,7 +11,9 @@ export class TodoItem extends LitElement {
     editValue: { state: true }
   };
 
-  static styles = css`
+  static styles = [
+    sharedStyles,
+    css`
     :host {
       display: block;
     }
@@ -19,8 +22,8 @@ export class TodoItem extends LitElement {
       display: flex;
       align-items: center;
       gap: 12px;
-      padding: 16px;
-      background: white;
+      padding: 12px;
+      background: var(--surface, white);
       border-radius: 8px;
       margin-bottom: 8px;
       transition: transform 0.2s, box-shadow 0.2s;
@@ -53,9 +56,7 @@ export class TodoItem extends LitElement {
       flex: 1;
       padding: 8px;
       font-size: 16px;
-      border: 2px solid #667eea;
       border-radius: 4px;
-      outline: none;
     }
 
     .button-group {
@@ -73,7 +74,7 @@ export class TodoItem extends LitElement {
     }
 
     .edit-btn {
-      background: #4CAF50;
+      background: var(--success);
       color: white;
     }
 
@@ -82,7 +83,7 @@ export class TodoItem extends LitElement {
     }
 
     .delete-btn {
-      background: #f44336;
+      background: var(--danger);
       color: white;
     }
 
@@ -91,7 +92,7 @@ export class TodoItem extends LitElement {
     }
 
     .save-btn {
-      background: #2196F3;
+      background: var(--primary);
       color: white;
     }
 
@@ -107,7 +108,8 @@ export class TodoItem extends LitElement {
     .cancel-btn:hover {
       background: #616161;
     }
-  `;
+    `
+  ];
 
   constructor() {
     super();

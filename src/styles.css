@@ -1,36 +1,37 @@
 /* Variables */
 :root {
-  --color-bg: #f6f8fa;
-  --color-surface: #ffffff;
-  --color-text: #0f172a;
-  --color-text-muted: #475569;
-
-  --color-primary: #4f46e5;
-  --color-danger: #ef4444;
-  --color-success: #16a34a;
-  --color-warning: #f59e0b;
-
-  --radius: 12px;
-  --border: 1px solid rgba(0,0,0,0.12);
-  --shadow: 0 6px 16px rgba(0,0,0,0.10);
+  --color-background: linear-gradient(135deg, #667eea 0%, #764ba2 65%);
+  /* smaller shadow for cards and controls */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+  /* compatibility aliases used by shared-styles */
+  --muted: var(--color-text-muted);
+  --primary: var(--color-primary);
+  --surface: var(--color-surface);
 }
 
 
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+  
 }
+
+html, body { height:100%;}
+
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--color-background, #f6f8fa);
+  color: var(--color-text, #0f172a);
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
+  margin:0;
 }
+
+
+
 
 main {
   width: 100%;
@@ -48,4 +49,16 @@ main {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+/* Accessibility: visible focus for keyboard users */
+:focus {
+  outline: 3px solid rgba(102,126,234,0.18);
+  outline-offset: 2px;
+}
+
+/* Prefer :focus-visible when available (avoids showing focus for mouse users) */
+:focus-visible {
+  outline: 3px solid rgba(102,126,234,0.28);
+  outline-offset: 2px;
 }

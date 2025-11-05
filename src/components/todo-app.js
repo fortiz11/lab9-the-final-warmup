@@ -1,4 +1,5 @@
 import { LitElement, html, css } from 'lit';
+import { sharedStyles } from '../styles/shared-styles.js';
 import { TodoModel } from '../models/todo-model.js';
 import { StorageService } from '../services/storage-service.js';
 import './todo-form.js';
@@ -13,17 +14,19 @@ export class TodoApp extends LitElement {
     todos: { state: true }
   };
 
-  static styles = css`
+  static styles = [
+    sharedStyles,
+    css`
     :host {
       display: block;
     }
 
     .app-container {
-      background: white;
+      background: var(--surface, white);
       border-radius: 16px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-      padding: 32px;
-      min-height: 400px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+      padding: 28px;
+      min-height: 360px;
     }
 
     h1 {
@@ -76,13 +79,8 @@ export class TodoApp extends LitElement {
 
     button {
       flex: 1;
-      padding: 10px 16px;
-      border: none;
-      border-radius: 8px;
-      font-size: 14px;
       font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
+      font-size: 14px;
     }
 
     .clear-completed {
@@ -108,6 +106,7 @@ export class TodoApp extends LitElement {
       cursor: not-allowed;
     }
 
+
     .footer {
       margin-top: 20px;
       padding-top: 20px;
@@ -116,7 +115,8 @@ export class TodoApp extends LitElement {
       color: #666;
       font-size: 12px;
     }
-  `;
+  `
+  ];
 
   constructor() {
     super();
