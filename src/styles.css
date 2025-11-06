@@ -1,8 +1,27 @@
 /* Variables */
 :root {
+  /* color tokens */
+  --color-bg: #f6f8fa;
+  --color-surface: #ffffff;
+  --color-text: #0f172a;
+  --color-text-muted: #475569;
+
   --color-background: linear-gradient(135deg, #667eea 0%, #764ba2 65%);
-  /* smaller shadow for cards and controls */
+
+  --color-primary: #4f46e5;
+  --color-danger: #ef4444;
+  --color-success: #16a34a;
+  --color-warning: #f59e0b;
+
+  /* layout tokens */
+  --radius: 12px;
+  --gap: 12px;
+  --border: 1px solid rgba(0,0,0,0.12);
+
+  /* shadows */
+  --shadow: 0 6px 16px rgba(0,0,0,0.10);
   --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+
   /* compatibility aliases used by shared-styles */
   --muted: var(--color-text-muted);
   --primary: var(--color-primary);
@@ -57,7 +76,7 @@ main {
   outline-offset: 2px;
 }
 
-/* Prefer :focus-visible when available (avoids showing focus for mouse users) */
+/*focus-visible when available (avoids showing focus for mouse users) */
 :focus-visible {
   outline: 3px solid rgba(102,126,234,0.28);
   outline-offset: 2px;
