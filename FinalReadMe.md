@@ -7,6 +7,7 @@
 
 The application is deployed using **Netlify** for automated continuous deployment. 
 
+Link: (https://lovely-zuccutto-7c2724.netlify.app/)
 
 
 ---
