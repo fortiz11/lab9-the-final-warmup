@@ -42,13 +42,12 @@ export class TodoModel {
     });
   }
 
-  
   addTodo(text) {
-    if (!text || (typeof text === 'string' && text.trim() === "")) {
+    if (!text || (typeof text === "string" && text.trim() === "")) {
       return null;
     }
 
-    const txt = (typeof text === 'string') ? text.trim() : String(text);
+    const txt = typeof text === "string" ? text.trim() : String(text);
 
     const todo = {
       id: this.nextId++,
@@ -98,10 +97,11 @@ export class TodoModel {
 
     // Accept either a string or an object like { text: '...' }
     let text = null;
-    if (typeof newText === 'string') text = newText;
-    else if (newText && typeof newText === 'object' && 'text' in newText) text = newText.text;
+    if (typeof newText === "string") text = newText;
+    else if (newText && typeof newText === "object" && "text" in newText)
+      text = newText.text;
 
-    if (text && text.trim() !== '') {
+    if (text && text.trim() !== "") {
       todo.text = text.trim();
       this.save();
       this.notify();
