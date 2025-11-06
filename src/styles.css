@@ -16,11 +16,11 @@
   /* layout tokens */
   --radius: 12px;
   --gap: 12px;
-  --border: 1px solid rgba(0,0,0,0.12);
+  --border: 1px solid rgba(0, 0, 0, 0.12);
 
   /* shadows */
-  --shadow: 0 6px 16px rgba(0,0,0,0.10);
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
+  --shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
 
   /* compatibility aliases used by shared-styles */
   --muted: var(--color-text-muted);
@@ -28,17 +28,18 @@
   --surface: var(--color-surface);
 }
 
-
 * {
   box-sizing: border-box;
-  
 }
 
-html, body { height:100%;}
-
+html,
+body {
+  height: 100%;
+}
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
   background: var(--color-background, #f6f8fa);
   color: var(--color-text, #0f172a);
   min-height: 100vh;
@@ -46,11 +47,8 @@ body {
   justify-content: center;
   align-items: center;
   padding: 20px;
-  margin:0;
+  margin: 0;
 }
-
-
-
 
 main {
   width: 100%;
@@ -72,12 +70,12 @@ main {
 
 /* Accessibility: visible focus for keyboard users */
 :focus {
-  outline: 3px solid rgba(102,126,234,0.18);
+  outline: 3px solid rgba(102, 126, 234, 0.18);
   outline-offset: 2px;
 }
 
 /*focus-visible when available (avoids showing focus for mouse users) */
 :focus-visible {
-  outline: 3px solid rgba(102,126,234,0.28);
+  outline: 3px solid rgba(102, 126, 234, 0.28);
   outline-offset: 2px;
 }

@@ -1,12 +1,12 @@
-import { LitElement, html, css } from 'lit';
-import { sharedStyles } from '../styles/shared-styles.js';
+import { LitElement, html, css } from "lit";
+import { sharedStyles } from "../styles/shared-styles.js";
 
 /**
  * TodoForm - Input form for adding new todos
  */
 export class TodoForm extends LitElement {
   static properties = {
-    inputValue: { state: true }
+    inputValue: { state: true },
   };
 
   static styles = [
@@ -31,12 +31,12 @@ export class TodoForm extends LitElement {
       button {
         padding: 12px 20px;
       }
-    `
+    `,
   ];
 
   constructor() {
     super();
-    this.inputValue = '';
+    this.inputValue = "";
   }
 
   handleSubmit(e) {
@@ -44,13 +44,15 @@ export class TodoForm extends LitElement {
     const text = this.inputValue.trim();
 
     if (text) {
-      this.dispatchEvent(new CustomEvent('add-todo', {
-        detail: { text },
-        bubbles: true,
-        composed: true
-      }));
+      this.dispatchEvent(
+        new CustomEvent("add-todo", {
+          detail: { text },
+          bubbles: true,
+          composed: true,
+        })
+      );
 
-      this.inputValue = '';
+      this.inputValue = "";
     }
   }
 
@@ -69,12 +71,10 @@ export class TodoForm extends LitElement {
           aria-label="New todo"
           autofocus
         />
-        <button type="submit" ?disabled=${!this.inputValue.trim()}>
-          Add
-        </button>
+        <button type="submit" ?disabled=${!this.inputValue.trim()}>Add</button>
       </form>
     `;
   }
 }
 
-customElements.define('todo-form', TodoForm);
+customElements.define("todo-form", TodoForm);
